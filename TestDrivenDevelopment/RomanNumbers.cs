@@ -20,5 +20,17 @@ namespace TestDrivenDevelopment
                                                                                {60,"LX" }, {600,"DC" }, {6000,"VM" },  {70,"LXX" },
                                                                                {700,"DCC" },{7000,"VMM" },  {80,"LXXX" },  {800,"DCCC" },
                                                                                {8000,"VMMM"},{90,"XC" },  {900,"CM" }, {9000,"IX"} };
+        public static string AddZeroes(int i, string number)
+        {
+            string zeros = "";
+            int d = i;
+            while (d != number.Length - 1)
+            {
+                zeros += "0";
+                d++;
+            }
+            return zeros;
+        }
     }
 }
+   

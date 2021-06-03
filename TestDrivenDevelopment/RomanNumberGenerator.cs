@@ -31,14 +31,9 @@ namespace TestDrivenDevelopment
                     romanNumbers += RomanNumbers.Numbers[int.Parse(number[i].ToString())];
                     break;
                 }
-                int d =  i;
-                while (d != number.Length -1)
-                {
-                    zeros += "0";
-                    d++;
-                }
+                zeros = RomanNumbers.AddZeroes(i, number);
                 romanNumbers += RomanNumbers.Numbers[int.Parse(number[i].ToString() + zeros)];
-                zeros = "";
+                
             }
             return romanNumbers;
         }
