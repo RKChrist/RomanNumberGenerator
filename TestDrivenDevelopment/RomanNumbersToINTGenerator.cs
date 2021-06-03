@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TestDrivenDevelopment
 {
-    public class RomanNumbersToNormalNumbersGenerator
+    public class RomanNumbersToINTGenerator
     {
             
     }
