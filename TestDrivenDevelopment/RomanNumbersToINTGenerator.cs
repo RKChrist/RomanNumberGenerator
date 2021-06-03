@@ -8,9 +8,9 @@ namespace TestDrivenDevelopment
 {
     public class RomanNumbersToINTGenerator
     {
-        public int ConvertToInt(string romanNumbers)
-        {
-            int numbers = 0;
+        //Bad Code for review later.
+        /*
+        int numbers = 0;
             bool BiggerThan3 = false;
             bool BiggerThan2 = false;
             if (romanNumbers == null && romanNumbers == string.Empty) throw new ArgumentException("Tilføj Værdi");
@@ -54,6 +54,10 @@ namespace TestDrivenDevelopment
             }
 
             return numbers;
+         */
+        public int ConvertToInt(string romanNumbers)
+        {
+            return 0;
         }
     }
 }
