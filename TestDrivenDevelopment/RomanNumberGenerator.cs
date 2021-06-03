@@ -1,0 +1,58 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TestDrivenDevelopment
+{
+    public class RomanNumberGenerator
+    {   
+        //Expand This, to add more numbers. The method will then update beyond 9000. Just gonna let it stay at 9000 now though.
+        Dictionary<int, string> RomanNumbers = new Dictionary<int, string>() { { 1, "I" },  { 2, "II"}, { 3, "III"},
+                                                                               { 4, "IV"}, { 5, "V"}, {6,"VI" },
+                                                                               {7,"VII"}, {8,"VIII" },{9, "IX" },
+                                                                               {10, "X" }, {100,"C" }, {1000,"M" },
+                                                                               {20,"XX" }, {200, "CC" },  {2000,"MM" },
+                                                                               {30,"XXX" }, {300,"CCC" },   {3000,"MMM" },
+                                                                               {40,"XL" },  {400,"CD" }, {4000,"MV" },
+                                                                               {50,"L" },  {500,"D" },  {5000,"V" },
+                                                                               {60,"LX" }, {600,"DC" }, {6000,"VM" },  {70,"LXX" },
+                                                                               {700,"DCC" },{7000,"VMM" },  {80,"LXXX" },  {800,"DCCC" },
+                                                                               {8000,"VMMM"},{90,"XC" },  {900,"CM" }, {9000,"IX"} };
+                                                                                
+        
+        public string ConvertToRomanNumbers(string normalNumbers)
+        {
+            if (normalNumbers == null) throw new ArgumentException("Den insertede string kan ikke være null");
+            if (normalNumbers.Length == 0 ) throw new ArgumentException("Den insertede string skal indeholde en værdi");
+            if (!int.TryParse(normalNumbers, out var s)) throw new ArgumentException("Den insertede string skal kun indeholde numre ");
+
+            return RomanNumbersConverter(normalNumbers);
+        }
+        private string RomanNumbersConverter(string number)
+        {
+            string romanNumbers = "";
+            string zeros = "";
+            for (int i = 0; i <= number.Length-1; i++)
+            {
+                if (number[i] == '0') continue;
+                if (number[^1] == number[i] && i == number.Length)
+                {
+                    romanNumbers += RomanNumbers[int.Parse(number[i].ToString())];
+                    break;
+                }
+                int d =  i;
+                while (d != number.Length -1)
+                {
+                    zeros += "0";
+                    d++;
+                }
+                romanNumbers += RomanNumbers[int.Parse(number[i].ToString() + zeros)];
+                zeros = "";
+            }
+            return romanNumbers;
+        }
+       
+    }
+}
