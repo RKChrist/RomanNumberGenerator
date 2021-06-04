@@ -59,6 +59,7 @@ namespace TestDrivenDevelopment
         {
             int integers = 0;
             bool isMoreThan2 = false;
+           
             if (romanNumbers.Length >= 2 )
             {
                 isMoreThan2 = true;
@@ -73,10 +74,14 @@ namespace TestDrivenDevelopment
                         break;
                     }
                 }
-                if (item.Value == romanNumbers)
+                if (romanNumbers.Length >= 1)
                 {
-                    integers += item.Key;
-                    break;
+                    if (item.Value == romanNumbers[0].ToString())
+                    {
+                        integers += item.Key;
+                        
+                        break;
+                    }
                 }
             }
             if (romanNumbers.Length != 1 && romanNumbers.Length != 0)
