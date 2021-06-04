@@ -57,7 +57,33 @@ namespace TestDrivenDevelopment
          */
         public int ConvertToInt(string romanNumbers)
         {
-            return 0;
+            int integers = 0;
+            bool isMoreThan2 = false;
+            if (romanNumbers.Length >= 2 )
+            {
+                isMoreThan2 = true;
+            }
+            foreach (var item in RomanNumbers.Numbers)
+            {
+                if (isMoreThan2)
+                {
+                    if (item.Value == romanNumbers.Substring(0,2))
+                    {
+                        integers += item.Key;
+                        break;
+                    }
+                }
+                if (item.Value == romanNumbers)
+                {
+                    integers += item.Key;
+                    break;
+                }
+            }
+            if (romanNumbers.Length != 1 && romanNumbers.Length != 0)
+            {
+                integers += ConvertToInt(romanNumbers.Substring(2));
+            }
+            return integers;
         }
     }
 }
